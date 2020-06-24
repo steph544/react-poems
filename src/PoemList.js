@@ -1,15 +1,29 @@
 import React from 'react';
-import { PoemCard } from './PoemCard';
+import PoemCard from './PoemCard.js';
 
-export function PoemList(){
-    return (
+export default class PoemList extends React.Component{
+    state={
+        poems: this.props.poems
+    }
+
+    // handleDelete=(poem)=>{
+    //     this.setState({
+    //         poems: this.state.poems.filter(instance => instance !== poem)
+    //     })
+    // }
+
+    render=()=>{return(
         <div className="ui cards" style={{ marginTop: 20 }}>
-        {[ /*  Replace this with an array of poems */ ].map( poem => (
+           
+        {this.props.poems.map( poem => (
             <PoemCard
+                poem={poem}
                 name={poem.name}
                 content={poem.content}
+                handleDelete2={this.props.handleDelete}
             />
         ))}
         </div>
     )
+    }
 }

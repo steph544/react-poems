@@ -13,7 +13,7 @@ export class PoemForm extends React.Component{
     setContent = e => this.setState({ content: e.target.value })
 
     handleSubmit = () => {
-        // What should we do here?
+        this.props.addPoem(this.state)
     }
 
     render(){
